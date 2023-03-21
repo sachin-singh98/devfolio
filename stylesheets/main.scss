@@ -2,12 +2,16 @@
 Global Settings & Utilities
 ========================================================================== */
 
+@mixin cubic-transition() {
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
 :root {
   --black: #000000;
   --blackrgb: 0, 0, 0;
   --white: #ffffff;
   --whiterbg: 255, 255, 255;
-  --theme: #4233ff;
+  --theme: #29cc61;
   --themergb: 71, 174, 255;
 }
 
@@ -53,20 +57,19 @@ p {
 }
 
 @media (max-width: 767px) {
+  body {
+    font-size: 0.875rem;
+  }
+
   h2 {
     font-size: 34px;
     line-height: calc(44 / 34);
-  }
-
-  h3 {
-    font-size: 26px;
-    line-height: calc(36 / 26);
   }
 }
 
 a {
   text-decoration: none;
-  transition: all 0.3s;
+  @include cubic-transition;
 }
 
 figure {
@@ -115,7 +118,7 @@ Utilities
     padding-top: 10px;
 
     &::before {
-      font-size: 60px;
+      font-size: 55px;
     }
   }
 }
@@ -156,7 +159,7 @@ Layouts
 
 /* header */
 #header {
-  padding: 30px 0px;
+  padding: 15px 0px;
   width: 100%;
   position: fixed;
   left: 0px;
@@ -165,7 +168,7 @@ Layouts
   z-index: 99;
 
   .logo {
-    font-size: 48px;
+    font-size: 30px;
     line-height: 1;
     font-weight: 700;
     color: var(--white);
@@ -174,8 +177,6 @@ Layouts
 
 @media (max-width: 1199px) {
   #header {
-    padding: 20px 0px;
-
     .logo {
       font-size: 30px;
     }
@@ -184,6 +185,8 @@ Layouts
 
 @media (max-width: 767px) {
   #header {
+    padding: 12px 0px;
+
     .logo {
       font-size: 20px;
     }
@@ -205,12 +208,13 @@ Layouts
         margin-left: 30px;
       }
 
-      a {
+      .link {
         font-size: 14px;
         font-weight: 400;
         color: var(--white);
         opacity: 0.7;
 
+        &.active,
         &:hover {
           color: var(--theme);
           opacity: 1;
@@ -246,7 +250,7 @@ Layouts
     padding: 90px 0px 30px;
     background: var(--black);
     z-index: 99;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    @include cubic-transition;
 
     .scrollable-content {
       padding: 0px 15px;
@@ -284,10 +288,10 @@ Layouts
     background: var(--theme);
     border-radius: 10px;
     pointer-events: none;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    @include cubic-transition;
 
     &:nth-child(2) {
-      margin: 4px 0px;
+      margin: 5px 0px;
     }
   }
 
@@ -302,7 +306,7 @@ Layouts
       }
 
       &:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
+        transform: rotate(-45deg) translate(6px, -6px);
       }
     }
   }
@@ -371,6 +375,7 @@ Layouts
     .figure1 {
       img {
         min-height: 500px;
+        height: auto;
       }
     }
 
@@ -409,15 +414,19 @@ Components
 .sociables {
   display: flex;
   align-items: center;
-  margin-left: -4px;
-  margin-right: -4px;
+  margin-left: -6px;
+  margin-right: -6px;
 
   li {
-    padding: 0px 4px;
+    padding: 0px 6px;
+  }
 
-    a {
-      color: var(--white);
-      font-size: 20px;
+  a {
+    color: var(--white);
+    font-size: 20px;
+
+    &:hover {
+      color: var(--theme);
     }
   }
 }
@@ -461,6 +470,10 @@ Components
 /* section */
 .section {
   padding: 70px 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -537,10 +550,11 @@ Components
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 
   &:hover {
     .overlay {
-      transform: scale(1);
+      transform: translateY(0);
     }
   }
 
@@ -553,35 +567,48 @@ Components
 
   .overlay {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    bottom: 15px;
-    left: 15px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0);
-    transition: all .4s ease-in-out;
+    transform: translateY(110%);
+    @include cubic-transition;
 
-    &::before {
-      content: '';
-      background: var(--theme);
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      opacity: .9;
-      z-index: -1;
-    }
-
+    button,
     a {
-      margin: 0px 20px;
       text-align: center;
       color: var(--white);
+      flex: 1;
+      padding: 10px;
+      @include cubic-transition;
+      background: var(--theme);
 
       svg {
         width: 30px;
+      }
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .card1 {
+    min-height: 250px;
+
+    .overlay {
+
+      button,
+      a {
+        padding: 5px 10px;
+
+        svg {
+          width: 22px;
+        }
       }
     }
   }
@@ -593,19 +620,29 @@ Components
     +li {
       margin-left: 8px;
     }
+  }
 
-    button {
-      background: rgba(var(--whiterbg), 0.1);
-      color: var(--white);
-      padding: 8px 30px;
-      font-size: 14px;
-      border-radius: 10px;
-      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  .btn {
+    border: 0px;
+    background: rgba(var(--whiterbg), 0.1);
+    color: var(--white);
+    padding: 8px 30px;
+    font-size: 14px;
+    border-radius: 10px;
+    @include cubic-transition;
 
-      &:hover,
-      &.active {
-        background: var(--theme);
-      }
+    &:hover,
+    &.active {
+      background: var(--theme);
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .filter1 {
+    .btn {
+      padding: 5px 18px;
+      border-radius: 6px;
     }
   }
 }

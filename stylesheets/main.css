@@ -6,7 +6,7 @@ Global Settings & Utilities
   --blackrgb: 0, 0, 0;
   --white: #ffffff;
   --whiterbg: 255, 255, 255;
-  --theme: #4233ff;
+  --theme: #29cc61;
   --themergb: 71, 174, 255;
 }
 
@@ -52,20 +52,19 @@ p {
 }
 
 @media (max-width: 767px) {
+  body {
+    font-size: 0.875rem;
+  }
   h2 {
     font-size: 34px;
     line-height: 1.2941176471;
   }
-  h3 {
-    font-size: 26px;
-    line-height: 1.3846153846;
-  }
 }
 a {
   text-decoration: none;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 
 figure {
@@ -113,7 +112,7 @@ Utilities
     padding-top: 10px;
   }
   .title1::before {
-    font-size: 60px;
+    font-size: 55px;
   }
 }
 .text-theme {
@@ -162,7 +161,7 @@ Layouts
 
 /* header */
 #header {
-  padding: 30px 0px;
+  padding: 15px 0px;
   width: 100%;
   position: fixed;
   left: 0px;
@@ -171,21 +170,21 @@ Layouts
   z-index: 99;
 }
 #header .logo {
-  font-size: 48px;
+  font-size: 30px;
   line-height: 1;
   font-weight: 700;
   color: var(--white);
 }
 
 @media (max-width: 1199px) {
-  #header {
-    padding: 20px 0px;
-  }
   #header .logo {
     font-size: 30px;
   }
 }
 @media (max-width: 767px) {
+  #header {
+    padding: 12px 0px;
+  }
   #header .logo {
     font-size: 20px;
   }
@@ -208,13 +207,13 @@ Layouts
 #main-navigation .menu li + li {
   margin-left: 30px;
 }
-#main-navigation .menu li a {
+#main-navigation .menu li .link {
   font-size: 14px;
   font-weight: 400;
   color: var(--white);
   opacity: 0.7;
 }
-#main-navigation .menu li a:hover {
+#main-navigation .menu li .link.active, #main-navigation .menu li .link:hover {
   color: var(--theme);
   opacity: 1;
 }
@@ -277,7 +276,7 @@ Layouts
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 #menu-btn span:nth-child(2) {
-  margin: 4px 0px;
+  margin: 5px 0px;
 }
 #menu-btn.active span:nth-child(1) {
   -webkit-transform: rotate(45deg) translate(5px, 5px);
@@ -288,9 +287,9 @@ Layouts
   opacity: 0;
 }
 #menu-btn.active span:nth-child(3) {
-  -webkit-transform: rotate(-45deg) translate(5px, -6px);
-      -ms-transform: rotate(-45deg) translate(5px, -6px);
-          transform: rotate(-45deg) translate(5px, -6px);
+  -webkit-transform: rotate(-45deg) translate(6px, -6px);
+      -ms-transform: rotate(-45deg) translate(6px, -6px);
+          transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .menu-open {
@@ -347,6 +346,7 @@ Layouts
 @media (max-width: 1199px) {
   #banner .figure1 img {
     min-height: 500px;
+    height: auto;
   }
   #banner .description h1 {
     font-size: 30px;
@@ -375,15 +375,18 @@ Components
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: -4px;
-  margin-right: -4px;
+  margin-left: -6px;
+  margin-right: -6px;
 }
 .sociables li {
-  padding: 0px 4px;
+  padding: 0px 6px;
 }
-.sociables li a {
+.sociables a {
   color: var(--white);
   font-size: 20px;
+}
+.sociables a:hover {
+  color: var(--theme);
 }
 
 /* arrow-list */
@@ -423,6 +426,17 @@ Components
 /* section */
 .section {
   padding: 70px 0px;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -494,11 +508,12 @@ Components
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 .card1:hover .overlay {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 .card1 figure img {
   width: 100%;
@@ -506,10 +521,9 @@ Components
 }
 .card1 .overlay {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,38 +533,54 @@ Components
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  -webkit-transform: translateY(110%);
+      -ms-transform: translateY(110%);
+          transform: translateY(110%);
+  -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
-.card1 .overlay::before {
-  content: "";
-  background: var(--theme);
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-  z-index: -1;
-}
+.card1 .overlay button,
 .card1 .overlay a {
-  margin: 0px 20px;
   text-align: center;
   color: var(--white);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px;
+  -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  background: var(--theme);
 }
+.card1 .overlay button svg,
 .card1 .overlay a svg {
   width: 30px;
 }
+.card1 .overlay button:hover,
+.card1 .overlay a:hover {
+  opacity: 0.8;
+}
 
+@media (max-width: 767px) {
+  .card1 {
+    min-height: 250px;
+  }
+  .card1 .overlay button,
+  .card1 .overlay a {
+    padding: 5px 10px;
+  }
+  .card1 .overlay button svg,
+  .card1 .overlay a svg {
+    width: 22px;
+  }
+}
 /* filter1 */
 .filter1 li + li {
   margin-left: 8px;
 }
-.filter1 li button {
+.filter1 .btn {
+  border: 0px;
   background: rgba(var(--whiterbg), 0.1);
   color: var(--white);
   padding: 8px 30px;
@@ -560,6 +590,13 @@ Components
   -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
-.filter1 li button:hover, .filter1 li button.active {
+.filter1 .btn:hover, .filter1 .btn.active {
   background: var(--theme);
+}
+
+@media (max-width: 767px) {
+  .filter1 .btn {
+    padding: 5px 18px;
+    border-radius: 6px;
+  }
 }
