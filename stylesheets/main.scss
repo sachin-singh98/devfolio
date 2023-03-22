@@ -12,7 +12,6 @@ Global Settings & Utilities
   --white: #ffffff;
   --whiterbg: 255, 255, 255;
   --theme: #29cc61;
-  --themergb: 71, 174, 255;
 }
 
 body {
@@ -109,6 +108,7 @@ Utilities
     -webkit-text-stroke: 1px var(--theme);
     z-index: -1;
     line-height: 1;
+    transition: all 1s ease-in-out;
   }
 }
 
@@ -125,10 +125,12 @@ Utilities
 
 .text-theme {
   color: var(--theme) !important;
+  transition: all 1s ease-in-out;
 }
 
 .bg-theme {
   background-color: var(--theme) !important;
+  transition: all 1s ease-in-out;
 }
 
 .icon1 {
@@ -171,7 +173,8 @@ Layouts
     font-size: 30px;
     line-height: 1;
     font-weight: 700;
-    color: var(--white);
+    color: var(--theme);
+    transition: all 1s ease-in-out;
   }
 }
 
@@ -204,7 +207,7 @@ Layouts
     justify-content: flex-end;
 
     li {
-      +li {
+      + li {
         margin-left: 30px;
       }
 
@@ -228,7 +231,7 @@ Layouts
   #main-navigation {
     .menu {
       li {
-        +li {
+        + li {
           margin-left: 20px;
         }
 
@@ -266,7 +269,7 @@ Layouts
       li {
         margin-bottom: 20px;
 
-        +li {
+        + li {
           margin-left: 0px;
         }
       }
@@ -289,6 +292,7 @@ Layouts
     border-radius: 10px;
     pointer-events: none;
     @include cubic-transition;
+    transition: all 1s ease-in-out;
 
     &:nth-child(2) {
       margin: 5px 0px;
@@ -364,6 +368,7 @@ Layouts
           left: 0px;
           bottom: 5px;
           z-index: -1;
+          transition: all 1s ease-in-out;
         }
       }
     }
@@ -450,6 +455,7 @@ Components
       color: var(--theme);
       line-height: 1;
       margin-right: 10px;
+      transition: all 1s ease-in-out;
     }
 
     strong {
@@ -470,10 +476,10 @@ Components
 /* section */
 .section {
   padding: 70px 0px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // min-height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -513,6 +519,7 @@ Components
   border: 2px solid transparent;
   background: var(--theme);
   padding: 20px 15px;
+  transition: all 1s ease-in-out;
 }
 
 /* list1 */
@@ -524,7 +531,7 @@ Components
     border-left: 2px solid rgba(var(--whiterbg), 0.2);
 
     &::before {
-      content: '';
+      content: "";
       width: 15px;
       height: 15px;
       border-radius: 100px;
@@ -532,6 +539,7 @@ Components
       position: absolute;
       left: -9px;
       top: 0px;
+      transition: all 1s ease-in-out;
     }
 
     p {
@@ -590,18 +598,17 @@ Components
       }
 
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
       }
     }
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .card1 {
     min-height: 250px;
 
     .overlay {
-
       button,
       a {
         padding: 5px 10px;
@@ -617,7 +624,7 @@ Components
 /* filter1 */
 .filter1 {
   li {
-    +li {
+    + li {
       margin-left: 8px;
     }
   }
@@ -631,14 +638,18 @@ Components
     border-radius: 10px;
     @include cubic-transition;
 
-    &:hover,
+    &:hover {
+      background: var(--theme);
+    }
+
     &.active {
       background: var(--theme);
+      transition: all 1s ease-in-out;
     }
   }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .filter1 {
     .btn {
       padding: 5px 18px;

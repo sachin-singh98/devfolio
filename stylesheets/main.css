@@ -7,7 +7,6 @@ Global Settings & Utilities
   --white: #ffffff;
   --whiterbg: 255, 255, 255;
   --theme: #29cc61;
-  --themergb: 71, 174, 255;
 }
 
 body {
@@ -104,6 +103,9 @@ Utilities
   -webkit-text-stroke: 1px var(--theme);
   z-index: -1;
   line-height: 1;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 @media (max-width: 767px) {
@@ -117,10 +119,16 @@ Utilities
 }
 .text-theme {
   color: var(--theme) !important;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .bg-theme {
   background-color: var(--theme) !important;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .icon1 {
@@ -173,7 +181,10 @@ Layouts
   font-size: 30px;
   line-height: 1;
   font-weight: 700;
-  color: var(--white);
+  color: var(--theme);
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 @media (max-width: 1199px) {
@@ -274,6 +285,9 @@ Layouts
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 #menu-btn span:nth-child(2) {
   margin: 5px 0px;
@@ -341,6 +355,9 @@ Layouts
   left: 0px;
   bottom: 5px;
   z-index: -1;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 @media (max-width: 1199px) {
@@ -412,6 +429,9 @@ Components
   color: var(--theme);
   line-height: 1;
   margin-right: 10px;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .arrow-list li strong {
   margin-right: 4px;
@@ -426,17 +446,6 @@ Components
 /* section */
 .section {
   padding: 70px 0px;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -471,6 +480,9 @@ Components
   border: 2px solid transparent;
   background: var(--theme);
   padding: 20px 15px;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 /* list1 */
@@ -489,6 +501,9 @@ Components
   position: absolute;
   left: -9px;
   top: 0px;
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .list1 li p:last-child {
   margin-bottom: 0px;
@@ -590,8 +605,14 @@ Components
   -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
-.filter1 .btn:hover, .filter1 .btn.active {
+.filter1 .btn:hover {
   background: var(--theme);
+}
+.filter1 .btn.active {
+  background: var(--theme);
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 @media (max-width: 767px) {
