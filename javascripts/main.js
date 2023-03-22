@@ -4,6 +4,30 @@ const header = document.getElementById("header");
 const mainNav = document.getElementById("main-navigation");
 const logo = document.querySelector(".logo");
 
+// fancybox
+Fancybox.bind("[data-fancybox]");
+
+// themeColor
+function themeColor() {
+    const themeArr = [
+        "#ffbb2c",
+        "#5578ff",
+        "#e80368",
+        "#e361ff",
+        "#47aeff",
+        "#ffa76e",
+        "#11dbcf",
+        "#4233ff",
+        "#b20969",
+        "#ff5828",
+        "#29cc61",
+    ];
+    let color = themeArr[Math.floor(Math.random() * themeArr.length)];
+    return color;
+}
+
+html.style.setProperty("--theme", themeColor());
+
 // menu
 const menuBtn = document.getElementById("menu-btn");
 menuBtn.addEventListener("click", (e) => {
@@ -37,17 +61,41 @@ window.onscroll = () => {
             navLinks.forEach((el) => el.classList.remove("active"));
             link.classList.add("active");
         }
-    })
+    });
+};
+
+// filter function
+function filter(filterBtns, filterWrap) {
+    let clickedBtn = Array.from(filterBtns).find(el => el.classList.contains("active")).getAttribute("data-id");
+    let items = Array.from(filterWrap.querySelectorAll("[data-filter]"));
+    let activItems = Array.from(filterWrap.querySelectorAll(`[data-filter-type="${clickedBtn}"]`));
+
+    if (clickedBtn !== "all") {
+        items.forEach(el => {
+            el.classList.add("d-none");
+            el.classList.remove("d-block");
+        });
+        activItems.forEach(el => {
+            el.classList.add("d-block");
+            el.classList.remove("d-none");
+        });
+    } else {
+        items.forEach(el => {
+            el.classList.add("d-block");
+            el.classList.remove("d-none");
+        });
+    }
 }
 
-// fancybox
-Fancybox.bind("[data-fancybox]");
+const filterBtns = document.querySelectorAll("#filter1 .btn[data-id]");
+const filterContainer = document.querySelector("[data-filter-wrapper]");
 
-// themeColor
-function themeColor() {
-    let themeArr = ["#ffbb2c", "#5578ff", "#e80368", "#e361ff", "#47aeff", "#ffa76e", "#11dbcf", "#4233ff", "#b20969", "#ff5828", "#29cc61"];
-    let color = themeArr[Math.floor(Math.random() * themeArr.length)];
-    return color;
+// filterProjects function
+function filterProject(e) {
+    filterBtns.forEach(el => el.classList.remove("active"));
+    e.target.classList.add("active");
+    filter(filterBtns, filterContainer);
 }
 
-html.style.setProperty("--theme", themeColor());
+// filter
+filterBtns.forEach(el => el.addEventListener("click", filterProject));

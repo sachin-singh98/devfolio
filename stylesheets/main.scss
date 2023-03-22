@@ -203,7 +203,7 @@ Layouts
     justify-content: flex-end;
 
     li {
-      + li {
+      +li {
         margin-left: 30px;
       }
 
@@ -227,7 +227,7 @@ Layouts
   #main-navigation {
     .menu {
       li {
-        + li {
+        +li {
           margin-left: 20px;
         }
 
@@ -265,7 +265,7 @@ Layouts
       li {
         margin-bottom: 20px;
 
-        + li {
+        +li {
           margin-left: 0px;
         }
       }
@@ -600,6 +600,7 @@ Components
     min-height: 250px;
 
     .overlay {
+
       button,
       a {
         padding: 5px 10px;
@@ -615,7 +616,7 @@ Components
 /* filter1 */
 .filter1 {
   li {
-    + li {
+    +li {
       margin-left: 8px;
     }
   }
