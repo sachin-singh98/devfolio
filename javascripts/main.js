@@ -2,6 +2,7 @@ const html = document.querySelector("html");
 const body = document.body;
 const header = document.getElementById("header");
 const mainNav = document.getElementById("main-navigation");
+const logo = document.querySelector(".logo");
 
 // menu
 const menuBtn = document.getElementById("menu-btn");
@@ -40,23 +41,16 @@ window.onscroll = () => {
 }
 
 // fancybox
-Fancybox.bind("[data-fancybox]", {
-    // Your custom options
-});
+Fancybox.bind("[data-fancybox]");
 
-function changeThemeColor() {
-    let rgbArr = [];
-    let r = "", g = "", b = "";
-
-    for (let i = 100; i < 255; i++) {
-        rgbArr.push(i);
-    }
-
-    r += rgbArr[Math.floor(Math.random() * rgbArr.length)];
-    g += rgbArr[Math.floor(Math.random() * rgbArr.length)];
-    b += rgbArr[Math.floor(Math.random() * rgbArr.length)];
-
-    html.style.setProperty("--theme", `rgb(${r}, ${g}, ${b})`);
+// themeColor
+function themeColor() {
+    let themeArr = ["#ffbb2c", "#5578ff", "#e80368", "#e361ff", "#47aeff", "#ffa76e", "#11dbcf", "#4233ff", "#b20969", "#ff5828", "#29cc61"];
+    let color = themeArr[Math.floor(Math.random() * themeArr.length)];
+    return color;
 }
 
-changeThemeColor();
+// change theme color
+setInterval(() => {
+    html.style.setProperty("--theme", themeColor());
+}, 10000);
