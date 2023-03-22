@@ -50,7 +50,4 @@ function themeColor() {
     return color;
 }
 
-// change theme color
-setInterval(() => {
-    html.style.setProperty("--theme", themeColor());
-}, 10000);
+html.style.setProperty("--theme", themeColor());
