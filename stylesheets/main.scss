@@ -645,3 +645,24 @@ Components
     }
   }
 }
+
+/* filter */
+[data-filter-box] {
+  transform: scale(0);
+  position: absolute;
+  @include cubic-transition;
+}
+
+.active[data-filter-box] {
+  transform: scale(1);
+  position: static;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+    border-color: var(--theme);
+  }
+}
+
+@import "./scss/calculator";

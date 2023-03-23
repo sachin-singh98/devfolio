@@ -30,7 +30,7 @@ html.style.setProperty("--theme", themeColor());
 
 // menu
 const menuBtn = document.getElementById("menu-btn");
-menuBtn.addEventListener("click", (e) => {
+menuBtn?.addEventListener("click", (e) => {
     e.target.classList.toggle("active");
     body.classList.toggle("menu-open");
 });
@@ -66,28 +66,19 @@ window.onscroll = () => {
 
 // filter function
 function filter(filterBtns, filterWrap) {
-    let clickedBtn = Array.from(filterBtns).find(el => el.classList.contains("active")).getAttribute("data-id");
-    let items = Array.from(filterWrap.querySelectorAll("[data-filter]"));
-    let activItems = Array.from(filterWrap.querySelectorAll(`[data-filter-type="${clickedBtn}"]`));
+    let activeBtn = Array.from(filterBtns).find(el => el.classList.contains("active")).getAttribute("data-filter-btn");
+    let items = Array.from(filterWrap.querySelectorAll("[data-filter-box]"));
+    let activItems = Array.from(filterWrap.querySelectorAll(`[data-filter-type="${activeBtn}"]`));
 
-    if (clickedBtn !== "all") {
-        items.forEach(el => {
-            el.classList.add("d-none");
-            el.classList.remove("d-block");
-        });
-        activItems.forEach(el => {
-            el.classList.add("d-block");
-            el.classList.remove("d-none");
-        });
+    if (activeBtn !== "all") {
+        items.forEach(el => el.classList.remove("active"));
+        activItems.forEach(el => el.classList.add("active"));
     } else {
-        items.forEach(el => {
-            el.classList.add("d-block");
-            el.classList.remove("d-none");
-        });
+        items.forEach(el => el.classList.add("active"));
     }
 }
 
-const filterBtns = document.querySelectorAll("#filter1 .btn[data-id]");
+const filterBtns = document.querySelectorAll("#filter1 .btn[data-filter-btn]");
 const filterContainer = document.querySelector("[data-filter-wrapper]");
 
 // filterProjects function
@@ -96,6 +87,8 @@ function filterProject(e) {
     e.target.classList.add("active");
     filter(filterBtns, filterContainer);
 }
+
+filter(filterBtns, filterContainer);
 
 // filter
 filterBtns.forEach(el => el.addEventListener("click", filterProject));

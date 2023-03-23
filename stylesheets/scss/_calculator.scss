@@ -1,0 +1,56 @@
+/* calculator */
+#calculator {
+    max-width: 375px;
+    margin: auto;
+    background: var(--theme);
+    background: linear-gradient(129.7deg, var(--theme) -100%, rgba(255, 255, 255, 0.4) 114.23%);
+    backdrop-filter: blur(51px) brightness(115%);
+    border-radius: 40px;
+    color: var(--white);
+    padding: 42px 33px;
+
+    #calculator-input {
+        margin-bottom: 40px;
+        height: 60px;
+        background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
+        text-align: right;
+        font-size: 32px;
+        border: 0px;
+        color: var(--white);
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    #buttons-wrap {
+        --bs-gutter-x: 20px;
+        --bs-gutter-y: 20px;
+    }
+
+    .btn {
+        color: var(--white);
+        font-size: 32px;
+        font-weight: 500;
+        width: 62px;
+        height: 62px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        @include cubic-transition;
+
+        &[data-btn="equal"] {
+            background: var(--theme);
+        }
+    }
+}
