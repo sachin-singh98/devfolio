@@ -366,6 +366,28 @@ Layouts
 /*  ==========================================================================
 Components
 ========================================================================== */
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+/* btn */
+.button1 {
+  padding: 8px 30px;
+  border-radius: 0px;
+  background: var(--theme);
+  color: var(--white);
+  border: 2px solid transparent;
+  font-weight: 500;
+}
+.button1:hover {
+  color: var(--theme);
+  border-color: var(--theme);
+}
+
+.theme-list li::marker {
+  color: var(--theme);
+}
+
 /* sociables */
 .sociables {
   display: -webkit-box;
@@ -497,8 +519,19 @@ Components
           justify-content: center;
   position: relative;
   overflow: hidden;
+  color: inherit;
+  padding: 20px 15px;
+  text-align: center;
+}
+.card1:hover {
+  color: inherit;
 }
 .card1:hover .overlay {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+.card1:hover .description {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
@@ -506,6 +539,21 @@ Components
 .card1 figure img {
   width: 100%;
   max-width: 250px;
+}
+.card1 .description {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  padding: 20px 15px;
+  background: var(--theme);
+  -webkit-transform: translateY(110%);
+      -ms-transform: translateY(110%);
+          transform: translateY(110%);
+  -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 .card1 .overlay {
   position: absolute;

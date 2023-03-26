@@ -408,6 +408,32 @@ Layouts
 /*  ==========================================================================
 Components
 ========================================================================== */
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+/* btn */
+.button1 {
+  padding: 8px 30px;
+  border-radius: 0px;
+  background: var(--theme);
+  color: var(--white);
+  border: 2px solid transparent;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--theme);
+    border-color: var(--theme);
+  }
+}
+
+.theme-list {
+  li {
+    &::marker {
+      color: var(--theme);
+    }
+  }
+}
 
 /* sociables */
 .sociables {
@@ -469,10 +495,6 @@ Components
 /* section */
 .section {
   padding: 70px 0px;
-  // min-height: 100vh;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -550,9 +572,18 @@ Components
   justify-content: center;
   position: relative;
   overflow: hidden;
+  color: inherit;
+  padding: 20px 15px;
+  text-align: center;
 
   &:hover {
+    color: inherit;
+
     .overlay {
+      transform: translateY(0);
+    }
+
+    .description {
       transform: translateY(0);
     }
   }
@@ -562,6 +593,18 @@ Components
       width: 100%;
       max-width: 250px;
     }
+  }
+
+  .description {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    padding: 20px 15px;
+    background: var(--theme);
+    transform: translateY(110%);
+    @include cubic-transition;
   }
 
   .overlay {

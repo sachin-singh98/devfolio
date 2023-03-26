@@ -28,12 +28,20 @@ function themeColor() {
 
 html.style.setProperty("--theme", themeColor());
 
+function addEventListenerIfNotNull(element, event, listener) {
+    if (element) {
+        element.addEventListener(event, listener);
+    }
+}
+
 // menu
 const menuBtn = document.getElementById("menu-btn");
-menuBtn?.addEventListener("click", (e) => {
+function toggleMenu(e) {
     e.target.classList.toggle("active");
     body.classList.toggle("menu-open");
-});
+}
+
+addEventListenerIfNotNull(menuBtn, "click", toggleMenu);
 
 // scrollToSection
 const navLinks = document.querySelectorAll("[data-link]");
@@ -46,11 +54,11 @@ for (const link of navLinks) {
         link.classList.add("active");
         body.classList.remove("menu-open");
         menuBtn.classList.remove("active");
-        window.scrollTo(0, Number(section.offsetTop) - header.clientHeight);
+        window.scrollTo(0, Number(section.offsetTop) + 1);
     });
 }
 
-// sections
+// active links on sections
 const sections = document.querySelectorAll("section.section");
 
 window.onscroll = () => {
@@ -66,20 +74,24 @@ window.onscroll = () => {
 
 // filter function
 function filter(filterBtns, filterWrap) {
-    let activeBtn = Array.from(filterBtns).find(el => el.classList.contains("active")).getAttribute("data-filter-btn");
-    let items = Array.from(filterWrap.querySelectorAll("[data-filter-box]"));
-    let activItems = Array.from(filterWrap.querySelectorAll(`[data-filter-type="${activeBtn}"]`));
+    if (filterBtns && filterWrap) {
+        let activeBtn = Array.from(filterBtns).find(el => el.classList.contains("active")).getAttribute("data-filter-btn");
+        let items = Array.from(filterWrap.querySelectorAll("[data-filter-box]"));
+        let activItems = Array.from(filterWrap.querySelectorAll(`[data-filter-box="${activeBtn}"]`));
 
-    if (activeBtn !== "all") {
-        items.forEach(el => el.classList.remove("active"));
-        activItems.forEach(el => el.classList.add("active"));
-    } else {
-        items.forEach(el => el.classList.add("active"));
+        if (activeBtn !== "all") {
+            items.forEach(el => el.classList.remove("active"));
+            activItems.forEach(el => el.classList.add("active"));
+        } else {
+            items.forEach(el => el.classList.add("active"));
+        }
     }
 }
 
 const filterBtns = document.querySelectorAll("#filter1 .btn[data-filter-btn]");
 const filterContainer = document.querySelector("[data-filter-wrapper]");
+
+filter(filterBtns, filterContainer);
 
 // filterProjects function
 function filterProject(e) {
@@ -88,7 +100,5 @@ function filterProject(e) {
     filter(filterBtns, filterContainer);
 }
 
-filter(filterBtns, filterContainer);
-
 // filter
-filterBtns.forEach(el => el.addEventListener("click", filterProject));
+filterBtns.forEach(el => addEventListenerIfNotNull(el, "click", filterProject));
