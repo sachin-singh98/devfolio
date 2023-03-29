@@ -566,18 +566,20 @@ Components
 /* card1 */
 .card1 {
   border: 2px solid rgba(var(--whiterbg), 0.3);
-  min-height: 300px;
+  min-height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
   color: inherit;
-  padding: 20px 15px;
+  padding: 10px 15px;
   text-align: center;
+  word-break: break-word;
 
   &:hover {
-    color: inherit;
+    color: var(--theme);
+    border-color: var(--theme);
 
     .overlay {
       transform: translateY(0);
@@ -640,7 +642,8 @@ Components
 
 @media (max-width: 767px) {
   .card1 {
-    min-height: 250px;
+    // min-height: 250px;
+    min-height: 100px;
 
     .overlay {
 
@@ -683,8 +686,9 @@ Components
 @media (max-width: 767px) {
   .filter1 {
     .btn {
-      padding: 5px 18px;
+      padding: 5px 10px;
       border-radius: 6px;
+      font-size: 12px;
     }
   }
 }

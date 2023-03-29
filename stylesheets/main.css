@@ -507,7 +507,7 @@ Components
 /* card1 */
 .card1 {
   border: 2px solid rgba(var(--whiterbg), 0.3);
-  min-height: 300px;
+  min-height: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -520,11 +520,13 @@ Components
   position: relative;
   overflow: hidden;
   color: inherit;
-  padding: 20px 15px;
+  padding: 10px 15px;
   text-align: center;
+  word-break: break-word;
 }
 .card1:hover {
-  color: inherit;
+  color: var(--theme);
+  border-color: var(--theme);
 }
 .card1:hover .overlay {
   -webkit-transform: translateY(0);
@@ -600,7 +602,7 @@ Components
 
 @media (max-width: 767px) {
   .card1 {
-    min-height: 250px;
+    min-height: 100px;
   }
   .card1 .overlay button,
   .card1 .overlay a {
@@ -632,8 +634,9 @@ Components
 
 @media (max-width: 767px) {
   .filter1 .btn {
-    padding: 5px 18px;
+    padding: 5px 10px;
     border-radius: 6px;
+    font-size: 12px;
   }
 }
 /* filter */
