@@ -1,52 +1,48 @@
 
 let input = document.getElementById("calculator-input");
-let inputBtns = document.querySelectorAll("[data-input-btn]");
+let inputNumbers = document.querySelectorAll("[data-input-btn='number']");
+let inputOperators = document.querySelectorAll("[data-input-btn='operator']");
 let equalBtn = document.querySelector("[data-btn='equal']");
 let inputVal = "";
-let numbers = /[0-9]/gm;
-let firstVal = "";
-let secondVal = "";
+let symbolsReg = /[-+*/]/gm;
 
-for (const btn of inputBtns) {
+console.log(inputNumbers, inputOperators);
+
+for (const btn of inputNumbers) {
     btn?.addEventListener("click", e => {
         inputVal += btn.textContent;
         input.value = inputVal;
-        switch (btn.textContent) {
-            case "/":
-                // firstVal = inputVal.slice(0, inputVal.indexOf(/[+/*-]/gm));
-                // secondVal = inputVal.slice(inputVal.indexOf(/[+/*-]/gm));
-                if (Array.from(inputVal).includes(btn.textContent)) {
-                    btn.setAttribute("disabled", "disabled");
-                }
-                console.log(firstVal, secondVal);
-                break;
-            case "*":
-                // firstVal = inputVal.slice(0, inputVal.indexOf(/[+/*-]/gm));
-                // secondVal = inputVal.slice(inputVal.indexOf(/[+/*-]/gm));
-                if (Array.from(inputVal).includes(btn.textContent)) {
-                    btn.setAttribute("disabled", "disabled");
-                }
-                console.log(firstVal, secondVal);
-                break;
-            case "-":
-                // firstVal = inputVal.slice(0, inputVal.indexOf(/[+/*-]/gm));
-                // secondVal = inputVal.slice(inputVal.indexOf(/[+/*-]/gm));
-                if (Array.from(inputVal).includes(btn.textContent)) {
-                    btn.setAttribute("disabled", "disabled");
-                }
-                console.log(firstVal, secondVal);
-                break;
-            case "+":
-                // firstVal = inputVal.slice(0, inputVal.indexOf(/[+/*-]/gm));
-                // secondVal = inputVal.slice(inputVal.indexOf(/[+/*-]/gm));
-                if (Array.from(inputVal).includes(btn.textContent)) {
-                    btn.setAttribute("disabled", "disabled");
-                }
-                console.log(firstVal, secondVal);
-                break;
-
-            default:
-                break;
-        }
-    });
+    })
 }
+
+for (const btn of inputOperators) {
+    btn?.addEventListener("click", e => {
+        inputVal += btn.textContent;
+        input.value = inputVal;
+    })
+}
+
+equalBtn?.addEventListener("click", e => {
+    let operatorIndex = inputVal.search(symbolsReg);
+    let firstVal = inputVal.substring(0, operatorIndex);
+    let secondVal = inputVal.substring(operatorIndex + 1);
+    let operator = inputVal[operatorIndex];
+    console.log(inputVal, operatorIndex, firstVal, secondVal, operator);
+
+    switch (operator) {
+        case "*":
+            input.value = Number(firstVal) * Number(secondVal);
+            break;
+        case "+":
+            input.value = Number(firstVal) + Number(secondVal);
+            break;
+        case "-":
+            input.value = Number(firstVal) - Number(secondVal);
+            break;
+        case "/":
+            input.value = Number(firstVal) / Number(secondVal);
+            break;
+        default:
+            break;
+    }
+});

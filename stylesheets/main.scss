@@ -163,8 +163,9 @@ Layouts
   position: fixed;
   left: 0px;
   top: 0px;
-  background: rgba(var(--blackrgb), 0.8);
   z-index: 99;
+  background: rgba(var(--blackrgb), .6);
+  backdrop-filter: blur(30px) brightness(112%);
 
   .logo {
     font-size: 30px;
@@ -211,7 +212,6 @@ Layouts
         font-size: 14px;
         font-weight: 400;
         color: var(--white);
-        opacity: 0.7;
 
         &.active,
         &:hover {
@@ -314,6 +314,10 @@ Layouts
 .menu-open {
   overflow: hidden;
 
+  #header {
+    backdrop-filter: none;
+  }
+
   #main-navigation {
     left: 0px;
   }
@@ -324,10 +328,21 @@ Layouts
   position: relative;
 
   .figure1 {
+    position: relative;
+
+    &::before {
+      content: '';
+      background: rgba(var(--blackrgb), .6);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
     img {
       height: 100vh;
       min-height: 800px;
-      opacity: 0.6;
     }
   }
 
@@ -337,6 +352,7 @@ Layouts
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+    color: var(--white);
 
     h1 {
       font-size: 48px;
@@ -494,12 +510,12 @@ Components
 
 /* section */
 .section {
-  padding: 70px 0px;
+  padding: 60px 0px;
 }
 
 @media (max-width: 767px) {
   .section {
-    padding: 40px 0px;
+    padding: 30px 0px;
   }
 }
 
@@ -534,6 +550,12 @@ Components
   border: 2px solid transparent;
   background: var(--theme);
   padding: 20px 15px;
+  color: var(--white);
+}
+
+/* progress1 */
+.progress1 {
+  background: var(--white);
 }
 
 /* list1 */
@@ -571,78 +593,26 @@ Components
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   color: inherit;
   padding: 10px 15px;
   text-align: center;
   word-break: break-word;
+  transform-style: preserve-3d;
 
   &:hover {
-    color: var(--theme);
+    color: var(--white);
     border-color: var(--theme);
-
-    .overlay {
-      transform: translateY(0);
-    }
-
-    .description {
-      transform: translateY(0);
-    }
-  }
-
-  figure {
-    img {
-      width: 100%;
-      max-width: 250px;
-    }
+    background: var(--theme);
   }
 
   .description {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
-    padding: 20px 15px;
-    background: var(--theme);
-    transform: translateY(110%);
-    @include cubic-transition;
-  }
-
-  .overlay {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(110%);
-    @include cubic-transition;
-
-    button,
-    a {
-      text-align: center;
-      color: var(--white);
-      flex: 1;
-      padding: 10px;
-      @include cubic-transition;
-      background: var(--theme);
-
-      svg {
-        width: 30px;
-      }
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
+    transform: translateZ(40px);
   }
 }
 
 @media (max-width: 767px) {
   .card1 {
-    // min-height: 250px;
     min-height: 100px;
 
     .overlay {
@@ -711,5 +681,94 @@ Components
     border-color: var(--theme);
   }
 }
+
+/* mode-btn */
+#mode-btn {
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--white);
+
+  &:hover {
+    color: var(--theme);
+  }
+}
+
+body.light-mode {
+  color: var(--black);
+  background: var(--white);
+
+  #mode-btn {
+    color: var(--black);
+
+    &:hover {
+      color: var(--theme);
+    }
+  }
+
+  /* header */
+  #header {
+    background: rgba(var(--whiterbg), .4);
+    backdrop-filter: blur(30px) brightness(112%);
+  }
+
+  /* main-navigation */
+  #main-navigation {
+    .menu {
+      li {
+        .link {
+          color: var(--black);
+
+          &.active,
+          &:hover {
+            color: var(--theme);
+          }
+        }
+      }
+    }
+  }
+
+  /* progress1 */
+  .progress1 {
+    background: rgba(var(--blackrgb), .2);
+  }
+
+  /* list1 */
+  .list1 {
+    li {
+      border-left-color: rgba(var(--blackrgb), 0.2);
+    }
+  }
+
+  /* sociables */
+  .sociables {
+    a {
+      color: var(--theme);
+    }
+  }
+
+  /* filter1 */
+  .filter1 {
+    .btn {
+      background: rgba(var(--blackrgb), 0.1);
+      color: var(--black);
+
+      &:hover,
+      &.active {
+        background: var(--theme);
+        color: var(--white)
+      }
+    }
+  }
+
+  /* card1 */
+  .card1 {
+    border-color: rgba(var(--blackrgb), 0.3);
+
+    &:hover {
+      border-color: var(--theme);
+    }
+  }
+}
+
 
 @import "./scss/calculator";

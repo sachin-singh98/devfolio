@@ -4,9 +4,6 @@ const header = document.getElementById("header");
 const mainNav = document.getElementById("main-navigation");
 const logo = document.querySelector(".logo");
 
-// fancybox
-Fancybox.bind("[data-fancybox]");
-
 // themeColor
 function themeColor() {
     const themeArr = [
@@ -102,3 +99,28 @@ function filterProject(e) {
 
 // filter
 filterBtns.forEach(el => addEventListenerIfNotNull(el, "click", filterProject));
+
+// mode-changer
+const modeBtn = document.getElementById("mode-btn");
+
+function changeMode() {
+    const icon = document.getElementById("mode-icon");
+    body.classList.toggle("light-mode");
+    if (icon?.classList.contains("fa-sun")) {
+        icon?.classList.add("fa-moon");
+        icon?.classList.remove("fa-sun");
+    } else {
+        icon?.classList.remove("fa-moon");
+        icon?.classList.add("fa-sun");
+    }
+}
+
+modeBtn?.addEventListener("click", changeMode, false);
+
+// tilt
+VanillaTilt.init(document.querySelectorAll("[data-tilt-box]"), {
+    reverse: true,
+    max: 15,
+    speed: 400,
+    scale: 1.05,
+});
