@@ -124,3 +124,13 @@ VanillaTilt.init(document.querySelectorAll("[data-tilt-box]"), {
     speed: 400,
     scale: 1.05,
 });
+
+// copylink
+const links = document.querySelectorAll("[data-copy]");
+
+for (const link of links) {
+    link.addEventListener("click", e => {
+        navigator.clipboard.writeText(link.getAttribute("href"));
+        e.preventDefault();
+    });
+}

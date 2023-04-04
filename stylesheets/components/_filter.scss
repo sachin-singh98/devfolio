@@ -1,0 +1,45 @@
+/* filter1 */
+.filter1 {
+    li {
+        +li {
+            margin-left: 8px;
+        }
+    }
+
+    .btn {
+        border: 0px;
+        background: rgba(var(--whiterbg), 0.1);
+        color: var(--white);
+        padding: 8px 30px;
+        font-size: 14px;
+        border-radius: 10px;
+        @include cubic-transition;
+
+        &:hover,
+        &.active {
+            background: var(--theme);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .filter1 {
+        .btn {
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+    }
+}
+
+/* filter */
+[data-filter-box] {
+    transform: scale(0);
+    position: absolute;
+    @include cubic-transition;
+}
+
+.active[data-filter-box] {
+    transform: scale(1);
+    position: static;
+}

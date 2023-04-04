@@ -84,6 +84,10 @@ Utilities
      object-fit: cover;
 }
 
+.fw-medium {
+  font-weight: 500 !important;
+}
+
 .title1 {
   position: relative;
   padding-top: 10px;
@@ -139,6 +143,11 @@ Utilities
 }
 .icon1 svg {
   width: 24px;
+}
+
+/* progress1 */
+.progress1 {
+  background: var(--white);
 }
 
 /*  ==========================================================================
@@ -234,7 +243,9 @@ Layouts
     width: 100%;
     height: 100%;
     padding: 90px 0px 30px;
-    background: var(--black);
+    background: rgba(var(--blackrgb), 0.6);
+    -webkit-backdrop-filter: blur(30px) brightness(112%);
+            backdrop-filter: blur(30px) brightness(112%);
     z-index: 99;
     -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
@@ -296,8 +307,8 @@ Layouts
   overflow: hidden;
 }
 .menu-open #header {
-  -webkit-backdrop-filter: none;
-          backdrop-filter: none;
+  -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
 }
 .menu-open #main-navigation {
   left: 0px;
@@ -383,10 +394,6 @@ Layouts
 /*  ==========================================================================
 Components
 ========================================================================== */
-.fw-medium {
-  font-weight: 500 !important;
-}
-
 /* btn */
 .button1 {
   padding: 8px 30px;
@@ -401,66 +408,6 @@ Components
   border-color: var(--theme);
 }
 
-.theme-list li::marker {
-  color: var(--theme);
-}
-
-/* sociables */
-.sociables {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: -6px;
-  margin-right: -6px;
-}
-.sociables li {
-  padding: 0px 6px;
-}
-.sociables a {
-  color: var(--white);
-  font-size: 20px;
-}
-.sociables a:hover {
-  color: var(--theme);
-}
-
-/* arrow-list */
-.arrow-list {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.arrow-list li {
-  position: relative;
-  margin-bottom: 20px;
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0px 15px;
-}
-.arrow-list li .fa {
-  font-weight: 400;
-  font-size: 20px;
-  color: var(--theme);
-  line-height: 1;
-  margin-right: 10px;
-}
-.arrow-list li strong {
-  margin-right: 4px;
-}
-
-@media (max-width: 767px) {
-  .arrow-list li {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
 /* section */
 .section {
   padding: 60px 0px;
@@ -471,60 +418,12 @@ Components
     padding: 30px 0px;
   }
 }
-/* stats */
-.stats {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-.stats li {
-  width: 25%;
-  padding: 0px 15px;
-}
-.stats .value {
-  font-size: 36px;
-  display: block;
-  font-weight: 600;
-  line-height: 1;
-}
-.stats p {
-  font-size: 14px;
-}
-.stats p:last-child {
-  margin-bottom: 0px;
-}
-
 /* box1 */
 .box1 {
   border: 2px solid transparent;
   background: var(--theme);
   padding: 20px 15px;
   color: var(--white);
-}
-
-/* progress1 */
-.progress1 {
-  background: var(--white);
-}
-
-/* list1 */
-.list1 li {
-  position: relative;
-  padding-left: 30px;
-  padding-bottom: 20px;
-  border-left: 2px solid rgba(var(--whiterbg), 0.2);
-}
-.list1 li::before {
-  content: "";
-  width: 15px;
-  height: 15px;
-  border-radius: 100px;
-  background: var(--theme);
-  position: absolute;
-  left: -9px;
-  top: 0px;
-}
-.list1 li p:last-child {
-  margin-bottom: 0px;
 }
 
 /* card1 */
@@ -621,66 +520,103 @@ Components
   border-color: var(--theme);
 }
 
-/* mode-btn */
-#mode-btn {
-  font-size: 18px;
-  line-height: 1.2;
-  color: var(--white);
+/* sociables */
+.sociables {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
 }
-#mode-btn:hover {
+.sociables a {
   color: var(--theme);
+  font-size: 20px;
 }
 
-body.light-mode {
-  color: var(--black);
-  background: var(--white);
-  /* header */
-  /* main-navigation */
-  /* progress1 */
-  /* list1 */
-  /* sociables */
-  /* filter1 */
-  /* card1 */
+/* arrow-list */
+.arrow-list {
+  margin-left: -15px;
+  margin-right: -15px;
 }
-body.light-mode #mode-btn {
-  color: var(--black);
+.arrow-list li {
+  position: relative;
+  margin-bottom: 20px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 15px;
 }
-body.light-mode #mode-btn:hover {
+.arrow-list li .fa {
+  font-weight: 400;
+  font-size: 20px;
   color: var(--theme);
+  line-height: 1;
+  margin-right: 10px;
 }
-body.light-mode #header {
-  background: rgba(var(--whiterbg), 0.4);
-  -webkit-backdrop-filter: blur(30px) brightness(112%);
-          backdrop-filter: blur(30px) brightness(112%);
+.arrow-list li strong {
+  margin-right: 4px;
 }
-body.light-mode #main-navigation .menu li .link {
-  color: var(--black);
+
+@media (max-width: 767px) {
+  .arrow-list li {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
-body.light-mode #main-navigation .menu li .link.active, body.light-mode #main-navigation .menu li .link:hover {
-  color: var(--theme);
+/* stats */
+.stats {
+  margin-left: -15px;
+  margin-right: -15px;
 }
-body.light-mode .progress1 {
-  background: rgba(var(--blackrgb), 0.2);
+.stats li {
+  width: 25%;
+  padding: 0px 15px;
 }
-body.light-mode .list1 li {
-  border-left-color: rgba(var(--blackrgb), 0.2);
+.stats .value {
+  font-size: 36px;
+  display: block;
+  font-weight: 600;
+  line-height: 1;
 }
-body.light-mode .sociables a {
-  color: var(--theme);
+.stats p {
+  font-size: 14px;
 }
-body.light-mode .filter1 .btn {
-  background: rgba(var(--blackrgb), 0.1);
-  color: var(--black);
+.stats p:last-child {
+  margin-bottom: 0px;
 }
-body.light-mode .filter1 .btn:hover, body.light-mode .filter1 .btn.active {
+
+/* list1 */
+.list1 li {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  border-left: 2px solid rgba(var(--whiterbg), 0.2);
+}
+.list1 li::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
   background: var(--theme);
-  color: var(--white);
+  position: absolute;
+  left: -9px;
+  top: 0px;
 }
-body.light-mode .card1 {
-  border-color: rgba(var(--blackrgb), 0.3);
+.list1 li p:last-child {
+  margin-bottom: 0px;
 }
-body.light-mode .card1:hover {
-  border-color: var(--theme);
+
+/* theme-list */
+.theme-list li::marker {
+  color: var(--theme);
 }
 
 /* calculator */
@@ -745,4 +681,64 @@ body.light-mode .card1:hover {
 }
 #calculator .btn[data-btn=equal] {
   background: var(--theme);
+}
+
+/* mode-btn */
+#mode-btn {
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--theme);
+}
+
+body.light-mode {
+  color: var(--black);
+  background: var(--white);
+  /* header */
+  /* main-navigation */
+  /* progress1 */
+  /* list1 */
+  /* filter1 */
+  /* card1 */
+}
+body.light-mode #header {
+  background: rgba(var(--whiterbg), 0.85);
+  -webkit-backdrop-filter: blur(30px) brightness(112%);
+          backdrop-filter: blur(30px) brightness(112%);
+}
+body.light-mode #main-navigation .menu li .link {
+  color: var(--black);
+}
+body.light-mode #main-navigation .menu li .link.active, body.light-mode #main-navigation .menu li .link:hover {
+  color: var(--theme);
+}
+body.light-mode .title1::before {
+  opacity: 1;
+}
+body.light-mode .progress1 {
+  background: rgba(var(--blackrgb), 0.2);
+}
+body.light-mode .list1 li {
+  border-left-color: rgba(var(--blackrgb), 0.2);
+}
+body.light-mode .filter1 .btn {
+  background: rgba(var(--blackrgb), 0.1);
+  color: var(--black);
+}
+body.light-mode .filter1 .btn:hover, body.light-mode .filter1 .btn.active {
+  background: var(--theme);
+  color: var(--white);
+}
+body.light-mode .card1 {
+  border-color: rgba(var(--blackrgb), 0.3);
+}
+body.light-mode .card1:hover {
+  border-color: var(--theme);
+}
+
+@media (max-width: 991px) {
+  body.light-mode #main-navigation {
+    background: rgba(var(--whiterbg), 0.85);
+    -webkit-backdrop-filter: blur(30px) brightness(112%);
+            backdrop-filter: blur(30px) brightness(112%);
+  }
 }

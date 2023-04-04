@@ -1,0 +1,83 @@
+/* mode-btn */
+#mode-btn {
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--theme);
+}
+
+body.light-mode {
+    color: var(--black);
+    background: var(--white);
+
+    /* header */
+    #header {
+        background: rgba(var(--whiterbg), .85);
+        backdrop-filter: blur(30px) brightness(112%);
+    }
+
+    /* main-navigation */
+    #main-navigation {
+        .menu {
+            li {
+                .link {
+                    color: var(--black);
+
+                    &.active,
+                    &:hover {
+                        color: var(--theme);
+                    }
+                }
+            }
+        }
+    }
+
+    .title1 {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    /* progress1 */
+    .progress1 {
+        background: rgba(var(--blackrgb), .2);
+    }
+
+    /* list1 */
+    .list1 {
+        li {
+            border-left-color: rgba(var(--blackrgb), 0.2);
+        }
+    }
+
+    /* filter1 */
+    .filter1 {
+        .btn {
+            background: rgba(var(--blackrgb), 0.1);
+            color: var(--black);
+
+            &:hover,
+            &.active {
+                background: var(--theme);
+                color: var(--white)
+            }
+        }
+    }
+
+    /* card1 */
+    .card1 {
+        border-color: rgba(var(--blackrgb), 0.3);
+
+        &:hover {
+            border-color: var(--theme);
+        }
+    }
+}
+
+@media(max-width: 991px) {
+    body.light-mode {
+        #main-navigation {
+            background: rgba(var(--whiterbg), .85);
+            backdrop-filter: blur(30px) brightness(112%);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+/* card1 */
+.card1 {
+    border: 2px solid rgba(var(--whiterbg), 0.3);
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    // overflow: hidden;
+    color: inherit;
+    padding: 10px 15px;
+    text-align: center;
+    word-break: break-word;
+    transform-style: preserve-3d;
+
+    &:hover {
+        color: var(--white);
+        border-color: var(--theme);
+        background: var(--theme);
+    }
+
+    .description {
+        transform: translateZ(40px);
+    }
+}
+
+@media (max-width: 767px) {
+    .card1 {
+        min-height: 100px;
+
+        .overlay {
+
+            button,
+            a {
+                padding: 5px 10px;
+
+                svg {
+                    width: 22px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+/* btn */
+.button1 {
+  padding: 8px 30px;
+  border-radius: 0px;
+  background: var(--theme);
+  color: var(--white);
+  border: 2px solid transparent;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--theme);
+    border-color: var(--theme);
+  }
+}

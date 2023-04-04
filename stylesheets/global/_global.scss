@@ -1,0 +1,66 @@
+body {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--white);
+    background: var(--black);
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif, Arial, "Helvetica Neue", Helvetica;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+h2,
+.h2 {
+    font-size: 40px;
+    line-height: calc(50 / 40);
+}
+
+h3,
+.h3 {
+    font-size: 26px;
+    line-height: calc(36 / 26);
+}
+
+p {
+    line-height: calc(26 / 16);
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 0.875rem;
+    }
+
+    h2 {
+        font-size: 34px;
+        line-height: calc(44 / 34);
+    }
+}
+
+a {
+    text-decoration: none;
+    @include cubic-transition;
+}
+
+figure {
+    margin-bottom: 0px;
+}
+
+button {
+    padding: 0px;
+    border: 0px;
+    background: transparent;
+}
