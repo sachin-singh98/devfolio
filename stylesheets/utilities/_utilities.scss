@@ -65,3 +65,38 @@
 .progress1 {
     background: var(--white);
 }
+
+[data-tooltip="link"] {
+    position: relative;
+
+    .tooltip-text {
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 15px);
+        transform: translateX(-50%);
+        background: var(--white);
+        color: var(--black);
+        border-radius: 5px;
+        padding: 7px;
+        font-size: 12px;
+        pointer-events: none;
+        align-items: center;
+        column-gap: 5px;
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            border-width: 10px 8px 0px 8px;
+            border-color: var(--white) transparent transparent transparent;
+            border-style: solid;
+        }
+    }
+}

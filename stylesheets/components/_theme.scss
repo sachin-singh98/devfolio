@@ -71,6 +71,17 @@ body.light-mode {
             border-color: var(--theme);
         }
     }
+
+    [data-tooltip="link"] {
+        .tooltip-text {
+            background: var(--black);
+            color: var(--white);
+
+            &::after {
+                border-color: var(--black) transparent transparent transparent;
+            }
+        }
+    }
 }
 
 @media(max-width: 991px) {

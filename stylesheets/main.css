@@ -150,6 +150,48 @@ Utilities
   background: var(--white);
 }
 
+[data-tooltip=link] {
+  position: relative;
+}
+[data-tooltip=link] .tooltip-text {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 15px);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: var(--white);
+  color: var(--black);
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 12px;
+  pointer-events: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+  display: none;
+}
+[data-tooltip=link] .tooltip-text.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+[data-tooltip=link] .tooltip-text::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 100%;
+  border-width: 10px 8px 0px 8px;
+  border-color: var(--white) transparent transparent transparent;
+  border-style: solid;
+}
+
 /*  ==========================================================================
 Layouts
 ========================================================================== */
@@ -733,6 +775,13 @@ body.light-mode .card1 {
 }
 body.light-mode .card1:hover {
   border-color: var(--theme);
+}
+body.light-mode [data-tooltip=link] .tooltip-text {
+  background: var(--black);
+  color: var(--white);
+}
+body.light-mode [data-tooltip=link] .tooltip-text::after {
+  border-color: var(--black) transparent transparent transparent;
 }
 
 @media (max-width: 991px) {

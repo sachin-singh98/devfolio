@@ -126,11 +126,27 @@ VanillaTilt.init(document.querySelectorAll("[data-tilt-box]"), {
 });
 
 // copylink
-const links = document.querySelectorAll("[data-copy]");
+const links = document.querySelectorAll("[data-tooltip]");
 
 for (const link of links) {
+    let output = link.querySelector(".tooltip-text");
+
     link.addEventListener("click", e => {
-        navigator.clipboard.writeText(link.getAttribute("href"));
+        let href = link.getAttribute("href");
+
+        navigator.clipboard.writeText(href).then(() => {
+            output.classList.add("active");
+            output.innerHTML = `Copied: <i>${href}</i>`;
+        })
+
         e.preventDefault();
     });
+
+    setInterval(() => {
+        output.classList.remove("active");
+    }, 3000);
 }
+
+Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+});
