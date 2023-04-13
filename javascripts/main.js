@@ -103,19 +103,22 @@ filterBtns.forEach(el => addEventListenerIfNotNull(el, "click", filterProject));
 // mode-changer
 const modeBtn = document.getElementById("mode-btn");
 
-function changeMode() {
-    const icon = document.getElementById("mode-icon");
-    body.classList.toggle("light-mode");
-    if (icon?.classList.contains("fa-sun")) {
-        icon?.classList.add("fa-moon");
-        icon?.classList.remove("fa-sun");
+modeBtn?.addEventListener("click", () => {
+    html.classList.toggle("light-mode");
+    if (window.localStorage.getItem("mode") === "light") {
+        window.localStorage.removeItem("mode");
     } else {
-        icon?.classList.remove("fa-moon");
-        icon?.classList.add("fa-sun");
+        window.localStorage.setItem("mode", "light");
     }
-}
+});
 
-modeBtn?.addEventListener("click", changeMode, false);
+(function () {
+    if (window.localStorage.getItem("mode") === "light") {
+        html.classList.add("light-mode");
+    } else {
+        html.classList.remove("light-mode");
+    }
+})();
 
 // tilt
 VanillaTilt.init(document.querySelectorAll("[data-tilt-box]"), {

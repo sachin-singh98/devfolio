@@ -18,6 +18,23 @@ body {
   font-family: "Montserrat", sans-serif, Arial, "Helvetica Neue", Helvetica;
 }
 
+@media (hover: hover) {
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--theme) var(--black);
+  }
+  body::-webkit-scrollbar {
+    width: 5px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--black);
+    border-radius: 10px;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: var(--theme);
+    border-radius: 10px;
+  }
+}
 .h1,
 .h2,
 .h3,
@@ -586,7 +603,7 @@ Components
 }
 .arrow-list li {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -605,6 +622,9 @@ Components
 }
 .arrow-list li strong {
   margin-right: 4px;
+}
+.arrow-list li .text p:last-child {
+  margin-bottom: 0px;
 }
 
 @media (max-width: 767px) {
@@ -731,10 +751,11 @@ Components
   line-height: 1.2;
   color: var(--theme);
 }
+#mode-btn .fa-moon {
+  display: none;
+}
 
-body.light-mode {
-  color: var(--black);
-  background: var(--white);
+html.light-mode {
   /* header */
   /* main-navigation */
   /* progress1 */
@@ -742,45 +763,58 @@ body.light-mode {
   /* filter1 */
   /* card1 */
 }
-body.light-mode #header {
+html.light-mode body {
+  color: var(--black);
+  background: var(--white);
+}
+html.light-mode body::-webkit-scrollbar-track {
+  background: var(--white);
+}
+html.light-mode #mode-btn .fa-moon {
+  display: block;
+}
+html.light-mode #mode-btn .fa-sun {
+  display: none;
+}
+html.light-mode #header {
   background: rgba(var(--whiterbg), 0.85);
   -webkit-backdrop-filter: blur(30px) brightness(112%);
           backdrop-filter: blur(30px) brightness(112%);
 }
-body.light-mode #main-navigation .menu li .link {
+html.light-mode #main-navigation .menu li .link {
   color: var(--black);
 }
-body.light-mode #main-navigation .menu li .link.active, body.light-mode #main-navigation .menu li .link:hover {
+html.light-mode #main-navigation .menu li .link.active, html.light-mode #main-navigation .menu li .link:hover {
   color: var(--theme);
 }
-body.light-mode .title1::before {
+html.light-mode .title1::before {
   opacity: 1;
 }
-body.light-mode .progress1 {
+html.light-mode .progress1 {
   background: rgba(var(--blackrgb), 0.2);
 }
-body.light-mode .list1 li {
+html.light-mode .list1 li {
   border-left-color: rgba(var(--blackrgb), 0.2);
 }
-body.light-mode .filter1 .btn {
+html.light-mode .filter1 .btn {
   background: rgba(var(--blackrgb), 0.1);
   color: var(--black);
 }
-body.light-mode .filter1 .btn:hover, body.light-mode .filter1 .btn.active {
+html.light-mode .filter1 .btn:hover, html.light-mode .filter1 .btn.active {
   background: var(--theme);
   color: var(--white);
 }
-body.light-mode .card1 {
+html.light-mode .card1 {
   border-color: rgba(var(--blackrgb), 0.3);
 }
-body.light-mode .card1:hover {
+html.light-mode .card1:hover {
   border-color: var(--theme);
 }
-body.light-mode [data-tooltip=link] .tooltip-text {
+html.light-mode [data-tooltip=link] .tooltip-text {
   background: var(--black);
   color: var(--white);
 }
-body.light-mode [data-tooltip=link] .tooltip-text::after {
+html.light-mode [data-tooltip=link] .tooltip-text::after {
   border-color: var(--black) transparent transparent transparent;
 }
 

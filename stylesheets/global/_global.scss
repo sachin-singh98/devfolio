@@ -7,6 +7,28 @@ body {
     font-family: "Montserrat", sans-serif, Arial, "Helvetica Neue", Helvetica;
 }
 
+@media (hover: hover) {
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--theme) var(--black);
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--black);
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--theme);
+            border-radius: 10px;
+        }
+    }
+}
+
+
 .h1,
 .h2,
 .h3,

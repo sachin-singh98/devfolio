@@ -3,11 +3,31 @@
     font-size: 18px;
     line-height: 1.2;
     color: var(--theme);
+
+    .fa-moon {
+        display: none;
+    }
 }
 
-body.light-mode {
-    color: var(--black);
-    background: var(--white);
+html.light-mode {
+    body {
+        color: var(--black);
+        background: var(--white);
+
+        &::-webkit-scrollbar-track {
+            background: var(--white);
+        }
+    }
+
+    #mode-btn {
+        .fa-moon {
+            display: block;
+        }
+
+        .fa-sun {
+            display: none;
+        }
+    }
 
     /* header */
     #header {
