@@ -132,22 +132,23 @@ VanillaTilt.init(document.querySelectorAll("[data-tilt-box]"), {
 const links = document.querySelectorAll("[data-tooltip]");
 
 for (const link of links) {
-    let output = link.querySelector(".tooltip-text");
+    let output = document.createElement("span");
+    output.classList.add("tooltip-text");
 
     link.addEventListener("click", e => {
-        let href = link.getAttribute("href");
+        let text = link.getAttribute("data-text");
 
-        navigator.clipboard.writeText(href).then(() => {
-            output.classList.add("active");
-            output.innerHTML = `Copied: <i>${href}</i>`;
-        })
+        navigator.clipboard.writeText(text).then(() => {
+            output.innerHTML = `Copied: <i>${text}</i>`;
+            link.appendChild(output);
+
+            setTimeout(() => {
+                link.removeChild(output);
+            }, 2000);
+        });
 
         e.preventDefault();
     });
-
-    setInterval(() => {
-        output.classList.remove("active");
-    }, 3000);
 }
 
 Fancybox.bind("[data-fancybox]", {

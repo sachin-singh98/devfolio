@@ -82,7 +82,7 @@
         pointer-events: none;
         align-items: center;
         column-gap: 5px;
-        display: none;
+        display: flex;
 
         &.active {
             display: flex;
@@ -97,6 +97,21 @@
             border-width: 10px 8px 0px 8px;
             border-color: var(--white) transparent transparent transparent;
             border-style: solid;
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    [data-tooltip="link"] {
+        position: static;
+
+        .tooltip-text {
+            position: fixed;
+            bottom: 30px;
+
+            &::after {
+                display: none;
+            }
         }
     }
 }

@@ -189,7 +189,9 @@ Utilities
   -webkit-column-gap: 5px;
      -moz-column-gap: 5px;
           column-gap: 5px;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 [data-tooltip=link] .tooltip-text.active {
   display: -webkit-box;
@@ -209,6 +211,18 @@ Utilities
   border-style: solid;
 }
 
+@media (max-width: 767px) {
+  [data-tooltip=link] {
+    position: static;
+  }
+  [data-tooltip=link] .tooltip-text {
+    position: fixed;
+    bottom: 30px;
+  }
+  [data-tooltip=link] .tooltip-text::after {
+    display: none;
+  }
+}
 /*  ==========================================================================
 Layouts
 ========================================================================== */
@@ -591,7 +605,8 @@ Components
      -moz-column-gap: 12px;
           column-gap: 12px;
 }
-.sociables a {
+.sociables a,
+.sociables button {
   color: var(--theme);
   font-size: 20px;
 }
