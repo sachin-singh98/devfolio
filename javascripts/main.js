@@ -154,3 +154,69 @@ for (const link of links) {
 Fancybox.bind("[data-fancybox]", {
     // Your custom options
 });
+
+// particles
+// Include images
+let img_src = [
+    'images/bootstrap.svg',
+    'images/html5.svg',
+    'images/sass.svg',
+    'images/tailwind.svg',
+    'images/css.svg',
+    'images/js.svg',
+    'images/jquery.svg',
+    'images/react.svg',
+    'images/figma.svg',
+    'images/id.svg',
+    'images/xd.svg',
+    'images/ps.svg',
+    'images/ai.svg',
+    'images/sketch.svg',
+    'images/vscode.svg',
+    'images/github.svg',
+];
+
+// Name images included
+let image_type = img_src.map(function (cuurentEl, index) { return "image" + index });
+
+// Configure particles-js
+particlesJS('particles-js',
+    {
+        "particles": {
+            "number": {
+                "value": img_src.length, // No of images
+                "density": {
+                    "enable": true,
+                    "value_area": 450 // Specify area (Lesser is greater density)
+                }
+            },
+            "shape": {
+                "type": image_type, // Add images to particle-js
+            },
+            "opacity": {
+                "value": .1, // Adjust opactiy
+            },
+            "size": {
+                "value": 22, // Adjust the image size
+            },
+            "move": {
+                "enable": true,
+                "speed": 3,   // Speed of particle motion
+                "bounce": true,
+                "attract": {
+                    "enable": true,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "resize": true
+            },
+        },
+        "retina_detect": true
+    }
+);
+

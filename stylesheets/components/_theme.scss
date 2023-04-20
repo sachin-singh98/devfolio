@@ -51,6 +51,20 @@ html.light-mode {
         }
     }
 
+    #particles-js {
+        filter: brightness(0);
+    }
+
+    #banner {
+        .description {
+            color: var(--black);
+
+            h1 {
+                color: var(--black);
+            }
+        }
+    }
+
     .title1 {
         &::before {
             opacity: 1;
