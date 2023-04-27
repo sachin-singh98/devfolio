@@ -116,6 +116,16 @@ html.light-mode {
             }
         }
     }
+
+    #scroll-top-btn{        
+        i{
+            svg{    
+                circle{
+                    stroke: var(--black);
+                }
+            }
+        }
+    }
 }
 
 @media(max-width: 991px) {

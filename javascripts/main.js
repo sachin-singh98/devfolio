@@ -220,3 +220,33 @@ particlesJS('particles-js',
     }
 );
 
+// scroll-top
+const scrollTopBtn = document.getElementById("scroll-top-btn");
+const scrollLoader = document.querySelector("#scroll-top-btn .loader");
+
+scrollTopBtn?.addEventListener("click", e => {
+    window.scrollTo(0, 0);
+});
+
+if(window.scrollY > 200){
+    scrollTopBtn?.classList.add("active");
+}else{
+    scrollTopBtn?.classList.remove("active");
+}
+
+window.onscroll = () => {
+    if(window.scrollY > 200){
+        scrollTopBtn?.classList.add("active");
+    }else{
+        scrollTopBtn?.classList.remove("active");
+    }
+
+    scrollLoader.style.strokeDasharray = `${window.scrollY / 12.9}%, 100`;
+}
+
+// scroll-down
+const scrollDownBtn = document.getElementById("scroll-down-btn");
+const main = document.getElementById("main").offsetTop - 8;
+scrollDownBtn?.addEventListener("click", function(){
+    window.scrollTo(0, main);
+})
