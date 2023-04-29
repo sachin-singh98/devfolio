@@ -223,6 +223,7 @@ particlesJS('particles-js',
 // scroll-top
 const scrollTopBtn = document.getElementById("scroll-top-btn");
 const scrollLoader = document.querySelector("#scroll-top-btn .loader");
+scrollLoader.style.display = "none";
 
 scrollTopBtn?.addEventListener("click", e => {
     window.scrollTo(0, 0);
@@ -240,8 +241,6 @@ window.onscroll = () => {
     }else{
         scrollTopBtn?.classList.remove("active");
     }
-
-    scrollLoader.style.strokeDasharray = `${window.scrollY / 12.9}%, 100`;
 }
 
 // scroll-down
