@@ -229,16 +229,16 @@ scrollTopBtn?.addEventListener("click", e => {
     window.scrollTo(0, 0);
 });
 
-if(window.scrollY > 200){
+if (window.scrollY > 200) {
     scrollTopBtn?.classList.add("active");
-}else{
+} else {
     scrollTopBtn?.classList.remove("active");
 }
 
 window.onscroll = () => {
-    if(window.scrollY > 200){
+    if (window.scrollY > 200) {
         scrollTopBtn?.classList.add("active");
-    }else{
+    } else {
         scrollTopBtn?.classList.remove("active");
     }
 }
@@ -246,6 +246,6 @@ window.onscroll = () => {
 // scroll-down
 const scrollDownBtn = document.getElementById("scroll-down-btn");
 const main = document.getElementById("main").offsetTop - 8;
-scrollDownBtn?.addEventListener("click", function(){
+scrollDownBtn?.addEventListener("click", function () {
     window.scrollTo(0, main);
 })

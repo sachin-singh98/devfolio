@@ -79,7 +79,6 @@ p {
 a {
   text-decoration: none;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 
@@ -115,7 +114,6 @@ Utilities
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   font-size: 70px;
   opacity: 0.6;
@@ -175,7 +173,6 @@ Utilities
   left: 50%;
   bottom: calc(100% + 15px);
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   background: var(--white);
   color: var(--black);
@@ -203,7 +200,6 @@ Utilities
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   top: 100%;
   border-width: 10px 8px 0px 8px;
@@ -321,7 +317,6 @@ Layouts
             backdrop-filter: blur(30px) brightness(112%);
     z-index: 99;
     -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-    -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   }
   #main-navigation .scrollable-content {
@@ -356,7 +351,6 @@ Layouts
   border-radius: 10px;
   pointer-events: none;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 #menu-btn span:nth-child(2) {
@@ -364,7 +358,6 @@ Layouts
 }
 #menu-btn.active span:nth-child(1) {
   -webkit-transform: rotate(45deg) translate(5px, 5px);
-      -ms-transform: rotate(45deg) translate(5px, 5px);
           transform: rotate(45deg) translate(5px, 5px);
 }
 #menu-btn.active span:nth-child(2) {
@@ -372,7 +365,6 @@ Layouts
 }
 #menu-btn.active span:nth-child(3) {
   -webkit-transform: rotate(-45deg) translate(6px, -6px);
-      -ms-transform: rotate(-45deg) translate(6px, -6px);
           transform: rotate(-45deg) translate(6px, -6px);
 }
 
@@ -491,7 +483,6 @@ Layouts
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: 20px;
 }
@@ -504,7 +495,6 @@ Layouts
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   top: 10px;
   -webkit-animation-name: animateDown;
@@ -551,7 +541,6 @@ Layouts
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 #scroll-top-btn.active {
@@ -597,7 +586,6 @@ Layouts
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(-90deg);
-      -ms-transform: translate(-50%, -50%) rotate(-90deg);
           transform: translate(-50%, -50%) rotate(-90deg);
   width: 57px;
 }
@@ -707,7 +695,6 @@ Components
   font-size: 14px;
   border-radius: 10px;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 .filter1 .btn:hover, .filter1 .btn.active {
@@ -724,17 +711,14 @@ Components
 /* filter */
 [data-filter-box] {
   -webkit-transform: scale(0);
-      -ms-transform: scale(0);
           transform: scale(0);
   position: absolute;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 
 .active[data-filter-box] {
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
   position: static;
 }
@@ -853,7 +837,6 @@ Components
   max-width: 375px;
   margin: auto;
   background: var(--theme);
-  background: -o-linear-gradient(320.3deg, var(--theme) -100%, rgba(255, 255, 255, 0.4) 114.23%);
   background: linear-gradient(129.7deg, var(--theme) -100%, rgba(255, 255, 255, 0.4) 114.23%);
   -webkit-backdrop-filter: blur(51px) brightness(115%);
           backdrop-filter: blur(51px) brightness(115%);
@@ -864,7 +847,6 @@ Components
 #calculator #calculator-input {
   margin-bottom: 40px;
   height: 60px;
-  background: -o-linear-gradient(320.3deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
   background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
   text-align: right;
   font-size: 32px;
@@ -899,13 +881,11 @@ Components
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  background: -o-linear-gradient(320.3deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
   background: linear-gradient(129.7deg, rgba(255, 255, 255, 0.6) -9.69%, rgba(255, 255, 255, 0.4) 114.23%);
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   border-radius: 16px;
   -webkit-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-  -o-transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 #calculator .btn[data-btn=equal] {
